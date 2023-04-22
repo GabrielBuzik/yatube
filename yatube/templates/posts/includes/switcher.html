@@ -1,0 +1,24 @@
+{% if user.is_authenticated %}
+  <div class="row my-3">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a 
+          class="nav-link {% if index %}active{% endif %}"
+          style="color:#2F4F4F"
+          href="{% url 'posts:index' %}"
+        >
+          All authors
+        </a>
+      </li>
+      <li class="nav-item">
+        <a 
+           class="nav-link {% if follow %}active{% endif %}"
+           style="color:#2F4F4F"
+           href="{% url 'posts:follow_index' %}"
+        >
+          Followed Authors
+        </a>
+      </li>
+    </ul>
+  </div>
+{% endif %}

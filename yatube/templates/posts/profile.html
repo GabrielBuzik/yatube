@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+  Profile of {{author.username}}
+{% endblock %}
+{% block content %}
+<div class="container py-5"> 
+  <div class="mb-5"> 
+  <h1>All post of user {{author.username}}</h1>
+  <h3>Total posts: {{page_obj.paginator.count}}</h3>
+  {% if  user.username != author.username%}
+  {% if following %}
+    <a
+      class="btn btn-lg btn-light"
+      href="{% url 'posts:profile_unfollow' author.username %}" role="button"
+    >
+      Unfollow
+    </a>
+  {% else %}
+      <a
+        class="btn btn-lg btn-primary"
+        href="{% url 'posts:profile_follow' author.username %}" role="button"
+      >
+        Follow
+      </a>
+   {% endif %}
+   {% endif %}
+  </div>
+  {% for post in page_obj %}
+  <article>
+    <ul>
+      <li>
+        Publication date: {{post.pub_date|date:"d E Y"}}
+      </li>
+    </ul>
+    {% thumbnail post.image "960x339" crop="center" upscale=True as im %}
+      <img class="card-img my-2" src="{{ im.url }}">
+    {% endthumbnail %}
+    <p>
+      {{post.text}}
+    </p>
+    <a href="{% url 'posts:post_detail' post.id %}">details </a>
+  </article>
+  {% if post.group %}   
+      <a href="{% url 'posts:group_list' post.group.slug %}">
+        all posts of the group {{post.group.title}}
+      </a>
+    {% endif %} 
+  {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %}
+{% include 'posts/includes/paginator.html' %}
+</div>
+{% endblock %}

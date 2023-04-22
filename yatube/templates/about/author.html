@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+<div class="container py-5"> 
+<h1>Author of the project</h1>
+<div class="container">
+<div class="row">
+  <div class="col-4">
+    {% thumbnail "https://avatars.githubusercontent.com/u/104318664?v=4" "300x300" crop="10%" as im %}
+        <img class="img-thumbnail"  src="{{im.url}}"> 
+    {% endthumbnail %}
+    <p style="font-size:30px">Gabriel Buzukashvili</p>
+    <p>Software Developer with financial background</p>
+    <p>Education: University of London, <br>London School of Economics and Polotical Science</p>
+    <p>Nationality: Israeli</p>
+    <ul></ul>
+    <li><a href="https://www.linkedin.com/in/gabriel-b-699ab9124/">LinkedIn</a></li>
+    <li><a href="https://github.com/GabrielBuzik">GitHub</a></li>
+    <li><a href="https://www.instagram.com/gabriel_buzik/">Instagram</a></li>
+    </ul>
+  </div>
+  <div class="col-8">
+    <p> During my studies at one of the world's top economics schools, 
+    I began using Python and its frameworks for academic projects. 
+    Later, while working in the Capital Markets Investment Banking department, 
+    I gained further expertise in Python and SQL, as they played a crucial role in financial data analysis.</p>
+
+    <p>After earning my degree,
+       I decided to pursue my interest in programming and computer science, 
+       both for personal projects that I had long envisioned and for potential 
+       employment opportunities in the field. To support my learning, 
+       I've used various resources such as books (such as "Computer Science" by J. Glenn Brookshear),
+        Udemy courses, and Practicum, which have helped me significantly in acquiring knowledge and practical skills in Django, APIs, algorithms, and Docker.</p>
+
+    <p>I'm continually engaged in developing projects on my own and collaborating with experienced
+       developers. Some of my noteworthy projects include Automated Trading Systems using the
+        Binance API, Risk Management tools, University Forum, and a Food Sharing platform.</p>
+    
+  </div>
+</div>
+</div>
+</div>
+{% endblock %} 
