@@ -133,8 +133,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '[::1]',
     'testserver',
-    'www.Gabriel22Buzukashvili.pythonanywhere.com',
-    'Gabriel22Buzukashvili.pythonanywhere.com',
 ]
 
 CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
